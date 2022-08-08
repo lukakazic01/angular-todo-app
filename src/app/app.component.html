@@ -1,0 +1,16 @@
+<nav class=""></nav>
+<div class="d-flex justify-content-center align-items-center mt-5">
+  <input class="input" [(ngModel)]="input">
+  <button class="btn btn-primary remove-border" (click)="addNewTodo()">Dodaj todo</button>
+</div>
+<div class="container mt-5 col-12">
+  <div class="row">
+    <todo-list
+      *ngFor="let todo of todoList"
+      [todo]="todo"
+      (obrisi)="deleteTodo($event)"
+      class="col-4 p-4 d-flex justify-content-center"
+      >
+    </todo-list>
+  </div>
+</div>
