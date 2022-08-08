@@ -1,4 +1,6 @@
-<nav class=""></nav>
+<nav class="d-flex justify-content-center align-items-center">
+  <h3 class="title-todo text-light  ">Moja Todo Aplikacija</h3>
+</nav>
 <div class="d-flex justify-content-center align-items-center mt-5">
   <input class="input" [(ngModel)]="input" (keydown.enter)="addNewTodo()">
   <button class="btn btn-primary remove-border" (click)="addNewTodo()">Dodaj todo</button>
@@ -9,10 +11,11 @@
       *ngFor="let todo of todoList; let i = 'index + 1'"
       [todo]="todo"
       [index]="i"
-      (obrisi)="deleteTodo($event)"
+      [todoList]="todoList"
+      (obrisiTodo)="deleteTodo($event)"
       (cekirajTodo)="completedTodo($event)"
       class="col-4 p-4 d-flex justify-content-center"
-      >
+    >
     </todo-list>
   </div>
 </div>

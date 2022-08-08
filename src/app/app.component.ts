@@ -13,26 +13,23 @@ export class AppComponent implements OnInit{
   todoList: ITodo[] = [];
   index: number = 0;
 
-  addNewTodo() {
+  addNewTodo():void {
     if(this.input === '')
      return;
     this.todoList.push({text: this.input, completed: false})
     this.input = ''
-    localStorage.setItem('todo', JSON.stringify(this.todoList))
   }
 
-  deleteTodo(todo: ITodo){
+  deleteTodo(todo: ITodo):void {
     const index = this.todoList.indexOf(todo);
     this.todoList.splice(index, 1);
-    localStorage.setItem('todo', JSON.stringify(this.todoList))
   }
 
-  completedTodo(todo: ITodo): void  {
-    if(this.todoList.indexOf(todo) !== -1) 
-    localStorage.setItem('todo', JSON.stringify(this.todoList));
+  completedTodo(todo: ITodo):void  {
+     this.todoList = [...this.todoList]
   }
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.todoList = JSON.parse(localStorage.getItem('todo') || '[]') 
   }
 }
