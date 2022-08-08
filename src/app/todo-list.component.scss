@@ -1,4 +1,8 @@
 .kartica{
     border: none;
-    box-shadow: 2px 2px 5px 2px rgba(235,235,235)
+    box-shadow: 2px 2px 5px 2px rgba(235,235,235);
+    transition: 0.3s ease-in
+}
+.dugmici{
+    flex-basis: 50%;
 }

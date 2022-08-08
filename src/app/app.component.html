@@ -1,14 +1,16 @@
 <nav class=""></nav>
 <div class="d-flex justify-content-center align-items-center mt-5">
-  <input class="input" [(ngModel)]="input">
+  <input class="input" [(ngModel)]="input" (keydown.enter)="addNewTodo()">
   <button class="btn btn-primary remove-border" (click)="addNewTodo()">Dodaj todo</button>
 </div>
 <div class="container mt-5 col-12">
   <div class="row">
     <todo-list
-      *ngFor="let todo of todoList"
+      *ngFor="let todo of todoList; let i = 'index + 1'"
       [todo]="todo"
+      [index]="i"
       (obrisi)="deleteTodo($event)"
+      (cekirajTodo)="completedTodo($event)"
       class="col-4 p-4 d-flex justify-content-center"
       >
     </todo-list>

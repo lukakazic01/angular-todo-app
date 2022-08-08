@@ -1,7 +1,10 @@
-<div class="card kartica" style="width: 18rem;">
+<div class="card kartica" [ngClass]="[todo.completed ? 'bg-success text-light':'bg-light']" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Task 1</h5>
+    <h5 class="card-title">Task {{index}}</h5>
     <p class="card-text">{{ todo.text }}</p>
-    <button type="button" class="btn btn-danger" (click)="deleteTodo(todo)">Obrisi Todo</button>
+      <div class="d-flex justify-content-around">
+        <button type="button" class="btn btn-danger remove-border dugmici" (click)="deleteTodo(todo)">Obrisi Todo</button>
+        <button type="button" class="btn btn-success remove-border dugmici" (click)="completedTodo(todo)">{{todo.completed ? 'Odcekiraj' : 'Zavrsen'}}</button>
+      </div>
   </div>
 </div>
